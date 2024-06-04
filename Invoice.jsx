@@ -455,6 +455,35 @@ function Invoice() {
        
         </Grid>
       </Box>
+      <Box className="fieldset">
+        <Grid container spacing={3} alignItems="center">
+       
+        
+          <Grid item xs={12}>
+            <FormControl component="fieldset" fullWidth>
+              <FormGroup row>
+               <FormControlLabel
+                  control={<Checkbox checked={reportRequestedThrough.telephone} onChange={handleCheckboxChange} name="telephone" />}
+               
+                />
+              </FormGroup>
+            </FormControl>
+          </Grid>
+          <Grid item xs={12} sm={12}>
+            <TextField
+              id="address"
+              label="Notes"
+              variant="outlined"
+              size="small"
+              fullWidth
+              value={phone2}
+              onChange={handlePhone2Change}
+              InputLabelProps={{ style: { fontSize: '14px' } }}
+            />
+          </Grid>
+       
+        </Grid>
+      </Box>
     </Box>
   );
 }
