@@ -411,7 +411,7 @@ function Invoice() {
           </Grid>
           <Grid item xs={12}>
             <FormControl component="fieldset" fullWidth>
-              {/* <Label>Report Requested Through</Label> */}
+              <Typography variant="body1" gutterBottom>Report Requested Through</Typography>
               <FormGroup row>
                 <FormControlLabel
                   control={<Checkbox checked={reportRequestedThrough.personally} onChange={handleCheckboxChange} name="personally" />}
@@ -440,7 +440,18 @@ function Invoice() {
               </FormGroup>
             </FormControl>
           </Grid>
-  
+          <Grid item xs={12} sm={12}>
+            <TextField
+              id="address"
+              
+              variant="outlined"
+              size="small"
+              fullWidth
+              value={phone2}
+              onChange={handlePhone2Change}
+              InputLabelProps={{ style: { fontSize: '14px' } }}
+            />
+          </Grid>
        
         </Grid>
       </Box>
