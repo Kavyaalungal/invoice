@@ -142,13 +142,7 @@ function Invoice() {
     <Box className="edit-invoice-container">
       <Navbar/>
       
-      <Box className="navbar">
-      {/* <Box className="header-row" display="flex" justifyContent="space-between" alignItems="center">
-        <img src={logo} alt="Logo" className="logo" />
-        <IconButton color="default" className="close-button">
-          <CloseIcon />
-        </IconButton>
-        </Box> */}
+      <Box className="navbar" >
         <Typography variant="h4" className="navbar-heading">Edit Invoice</Typography>
         <Box className="navbar-buttons">
           <Button variant="contained" color="primary" className="navbar-button">NEW</Button>
@@ -220,43 +214,49 @@ function Invoice() {
               InputLabelProps={{ style: { fontSize: '14px' } }}
             />
           </Grid>
-          <Grid item xs={12} sm={2}>
-            <TextField
-              id="dd"
-              label="Day"
-              variant="outlined"
-              size="small"
-              fullWidth
-              value={day}
-              onChange={handleDayChange}
-              InputLabelProps={{ style: { fontSize: '14px' } }}
-            />
-          </Grid>
-          <Grid item xs={12} sm={2}>
-            <TextField
-              id="mm"
-              label="Month"
-              variant="outlined"
-              size="small"
-              fullWidth
-              value={month}
-              onChange={handleMonthChange}
-              InputLabelProps={{ style: { fontSize: '14px' } }}
-            />
-          </Grid>
-          <Grid item xs={12} sm={2}>
-            <TextField
-              id="yyyy"
-              label="Year"
-              variant="outlined"
-              size="small"
-              fullWidth
-              value={year}
-              onChange={handleYearChange}
-              InputLabelProps={{ style: { fontSize: '14px' } }}
-            />
-          </Grid>
-          <Grid item xs={12} sm={2}>
+          <Grid item xs={12} sm={1}>
+    <Typography variant="body1" gutterBottom>
+      Age
+    </Typography>
+  </Grid>
+  <Grid item container xs={12} sm={7} spacing={1}>
+    <Grid item xs={3}>
+      <TextField
+        id="dd"
+        label="Day"
+        variant="outlined"
+        size="small"
+        fullWidth
+        value={day}
+        onChange={handleDayChange}
+        InputLabelProps={{ style: { fontSize: '14px' } }}
+      />
+    </Grid>
+    <Grid item xs={3}>
+      <TextField
+        id="mm"
+        label="Month"
+        variant="outlined"
+        size="small"
+        fullWidth
+        value={month}
+        onChange={handleMonthChange}
+        InputLabelProps={{ style: { fontSize: '14px' } }}
+      />
+    </Grid>
+    <Grid item xs={3}>
+      <TextField
+        id="yyyy"
+        label="Year"
+        variant="outlined"
+        size="small"
+        fullWidth
+        value={year}
+        onChange={handleYearChange}
+        InputLabelProps={{ style: { fontSize: '14px' } }}
+      />
+    </Grid>
+    <Grid item xs={12} sm={3}>
             <FormControl variant="outlined" size="small" fullWidth>
               <InputLabel id="genderLabel">Gender</InputLabel>
               <Select
@@ -273,6 +273,8 @@ function Invoice() {
               </Select>
             </FormControl>
           </Grid>
+  </Grid>
+        
           <Grid item xs={12} sm={4}>
             <TextField
               id="dob"

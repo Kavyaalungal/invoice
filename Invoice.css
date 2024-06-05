@@ -22,6 +22,7 @@
     font-size: 24px;
     font-weight: bold;
     color: #333;
+    text-decoration: none;
   }
   
   .navbar-buttons {
@@ -55,4 +56,4 @@
   .navbar-heading{
     color: black;
   }
-  
+ 
