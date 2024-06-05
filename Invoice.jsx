@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { TextField, Button, InputLabel, Select, MenuItem, FormControl, Grid, Box, Typography, FormControlLabel, FormGroup, Checkbox, IconButton } from '@mui/material';
 import './Invoice.css';
-import CloseIcon from '@mui/icons-material/Close';
-import Navbar from './Navbar';
-// import logo from './logo.png';
+import Navbar from './Navbar'; 
+
 
 function Invoice() {
+
+
+  const [invoiceData, setInvoiceData] = useState(null);
   const [labNo, setLabNo] = useState('');
   const [dateTime, setDateTime] = useState('');
   const [prefix, setPrefix] = useState('');
@@ -40,6 +42,9 @@ function Invoice() {
     email: false,
     sms: false,
     telephone: false,
+  });
+  const [report, setReport] = useState({
+    urgentwork: false
   });
 
   const handleLabNoChange = (e) => {
@@ -136,6 +141,9 @@ function Invoice() {
 
   const handleCheckboxChange = (event) => {
     setReportRequestedThrough({ ...reportRequestedThrough, [event.target.name]: event.target.checked });
+  };
+  const handleCheckChange = (event) => {
+    setReport({ ...report, [event.target.name]: event.target.checked });
   };
 
   return (
@@ -565,8 +573,8 @@ function Invoice() {
             <FormControl component="fieldset" fullWidth>
               <FormGroup row>
                <FormControlLabel
-                  control={<Checkbox checked={reportRequestedThrough.telephone} onChange={handleCheckboxChange} name="telephone" />}
-               
+                  control={<Checkbox checked={report.urgentwork} onChange={handleCheckChange} name="urgentwork" />}
+                  label="Urgent Report"
                 />
               </FormGroup>
             </FormControl>
