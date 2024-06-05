@@ -1,6 +1,10 @@
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Invoice from './Invoice';
 import Navbar from './Navbar';
+import InvoiceData from './InvoiceData';
+import SingleFieldFetch from './SingleFieldFetch';
+import Swr from './Fetch';
+import Fetch from './Fetch';
 
 const theme = createTheme({
   palette: {
@@ -23,7 +27,10 @@ function App() {
 
     
     <ThemeProvider theme={theme}>
-      <Invoice />
+      <SingleFieldFetch/>
+      {/* <InvoiceData/> */}
+      {/* <Invoice /> */}
+      {/* <Fetch/> */}
     </ThemeProvider>
     </div>
   );
