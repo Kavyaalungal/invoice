@@ -1,19 +1,38 @@
 import React, { useState } from 'react';
-import { TextField, Button, InputLabel, Select, MenuItem, FormControl, Grid, Box, Typography, FormControlLabel, FormGroup, Checkbox } from '@mui/material';
+import { TextField, Button, InputLabel, Select, MenuItem, FormControl, Grid, Box, Typography, FormControlLabel, FormGroup, Checkbox, IconButton } from '@mui/material';
 import './Invoice.css';
+import CloseIcon from '@mui/icons-material/Close';
+import Navbar from './Navbar';
+// import logo from './logo.png';
 
 function Invoice() {
   const [labNo, setLabNo] = useState('');
   const [dateTime, setDateTime] = useState('');
   const [prefix, setPrefix] = useState('');
   const [name, setName] = useState('');
-  const [age, setAge] = useState('');
+  const [day, setDay] = useState('');
+  const [month, setMonth] = useState('');
+  const [year, setYear] = useState('');
   const [gender, setGender] = useState('');
   const [dob, setDob] = useState('');
   const [phone1, setPhone1] = useState('');
   const [phone2, setPhone2] = useState('');
+  const [email, setEamil] = useState('');
+  const [nationality, setNationality] = useState('');
+  const [address, setAddress] = useState('');
+  const [refBy, setRefBy] = useState('');
+  const [outDr, setOutDr] = useState('');
+  const [passport, setPassport] = useState('');
+  const [srfNo, setSrfNo] = useState('');
+  const [branch, setBranch] = useState('');
+  const [aadhar, setAadhar] = useState('');
+  const [wardNo, setWardNo] = useState('');
+  const [ipOpNo, setIpOpNo] = useState('');
+  const [collMode, setCollMode] = useState('');
+  const [collBy, setCollBy] = useState('');
   const [sampleOn, setSampleOn] = useState('');
   const [reportOn, setReportOn] = useState('');
+  const [field, setField] = useState('');
   const [reportRequestedThrough, setReportRequestedThrough] = useState({
     personally: false,
     whatsapp: false,
@@ -39,8 +58,14 @@ function Invoice() {
     setName(e.target.value);
   };
 
-  const handleAgeChange = (e) => {
-    setAge(e.target.value);
+  const handleDayChange = (e) => {
+    setDay(e.target.value);
+  };
+  const handleMonthChange = (e) => {
+    setMonth(e.target.value);
+  };
+  const handleYearChange = (e) => {
+    setYear(e.target.value);
   };
 
   const handleGenderChange = (e) => {
@@ -58,12 +83,55 @@ function Invoice() {
   const handlePhone2Change = (e) => {
     setPhone2(e.target.value);
   };
-  const handleSampleOnChange = (e) => {
-    setSampleOn(e.target.value);
+  const handleEmailChange = (e) => {
+    setEamil(e.target.value);
+  };
+  const handleNationalityChange = (e) => {
+    setNationality(e.target.value);
+  };
+  const handleAddressChange = (e) => {
+    setAddress(e.target.value);
+  };
+  const handleRefByChange = (e) => {
+    setRefBy(e.target.value);
+  };
+  const  handleOutDrChange = (e) => {
+    setOutDr(e.target.value);
+  };
+  const  handlePassportChange = (e) => {
+    setPassport(e.target.value);
+  };
+  const handleSrfNoChange = (e) => {
+    setSrfNo(e.target.value);
+  };
+  const handleBranchChange =(e)=>{
+    setBranch(e.target.value);
+  }
+  const handleAadharChange =(e)=>{
+    setAadhar(e.target.value);
+  }
+  const handleWardNoChange = (e) =>{
+    setWardNo(e.target.value);
+  }
+  const handleIpOpNoChange = (e) =>{
+    setIpOpNo(e.target.value);
+  }
+  const handleCollModeChange = (e) =>{
+    setCollMode(e.target.value);
+  }
+  const handleCollBYChange = (e) =>{
+    setCollBy(e.target.value);
+  }
+ 
+  const handleFieldChange = (e) => {
+    setField(e.target.value);
   };
 
   const handleReportOnChange = (e) => {
     setReportOn(e.target.value);
+  };
+  const handleSampleOnChange = (e) => {
+    setSampleOn(e.target.value);
   };
 
   const handleCheckboxChange = (event) => {
@@ -72,7 +140,15 @@ function Invoice() {
 
   return (
     <Box className="edit-invoice-container">
+      <Navbar/>
+      
       <Box className="navbar">
+      {/* <Box className="header-row" display="flex" justifyContent="space-between" alignItems="center">
+        <img src={logo} alt="Logo" className="logo" />
+        <IconButton color="default" className="close-button">
+          <CloseIcon />
+        </IconButton>
+        </Box> */}
         <Typography variant="h4" className="navbar-heading">Edit Invoice</Typography>
         <Box className="navbar-buttons">
           <Button variant="contained" color="primary" className="navbar-button">NEW</Button>
@@ -144,19 +220,43 @@ function Invoice() {
               InputLabelProps={{ style: { fontSize: '14px' } }}
             />
           </Grid>
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} sm={2}>
             <TextField
-              id="age"
-              label="Age"
+              id="dd"
+              label="Day"
               variant="outlined"
               size="small"
               fullWidth
-              value={age}
-              onChange={handleAgeChange}
+              value={day}
+              onChange={handleDayChange}
               InputLabelProps={{ style: { fontSize: '14px' } }}
             />
           </Grid>
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} sm={2}>
+            <TextField
+              id="mm"
+              label="Month"
+              variant="outlined"
+              size="small"
+              fullWidth
+              value={month}
+              onChange={handleMonthChange}
+              InputLabelProps={{ style: { fontSize: '14px' } }}
+            />
+          </Grid>
+          <Grid item xs={12} sm={2}>
+            <TextField
+              id="yyyy"
+              label="Year"
+              variant="outlined"
+              size="small"
+              fullWidth
+              value={year}
+              onChange={handleYearChange}
+              InputLabelProps={{ style: { fontSize: '14px' } }}
+            />
+          </Grid>
+          <Grid item xs={12} sm={2}>
             <FormControl variant="outlined" size="small" fullWidth>
               <InputLabel id="genderLabel">Gender</InputLabel>
               <Select
@@ -217,8 +317,8 @@ function Invoice() {
               variant="outlined"
               size="small"
               fullWidth
-              value={phone1}
-              onChange={handlePhone1Change}
+              value={email}
+              onChange={handleEmailChange}
               InputLabelProps={{ style: { fontSize: '14px' } }}
             />
           </Grid>
@@ -229,8 +329,8 @@ function Invoice() {
               variant="outlined"
               size="small"
               fullWidth
-              value={phone2}
-              onChange={handlePhone2Change}
+              value={nationality}
+              onChange={handleNationalityChange}
               InputLabelProps={{ style: { fontSize: '14px' } }}
             />
           </Grid>
@@ -241,8 +341,8 @@ function Invoice() {
               variant="outlined"
               size="small"
               fullWidth
-              value={phone2}
-              onChange={handlePhone2Change}
+              value={address}
+              onChange={ handleAddressChange}
               InputLabelProps={{ style: { fontSize: '14px' } }}
             />
           </Grid>
@@ -257,8 +357,8 @@ function Invoice() {
               variant="outlined"
               size="small"
               fullWidth
-              value={phone1}
-              onChange={handlePhone1Change}
+              value={refBy}
+              onChange={handleRefByChange}
               InputLabelProps={{ style: { fontSize: '14px' } }}
             />
           </Grid>
@@ -269,8 +369,8 @@ function Invoice() {
               variant="outlined"
               size="small"
               fullWidth
-              value={phone2}
-              onChange={handlePhone2Change}
+              value={outDr}
+              onChange={handleOutDrChange}
               InputLabelProps={{ style: { fontSize: '14px' } }}
             />
           </Grid>
@@ -281,8 +381,8 @@ function Invoice() {
               variant="outlined"
               size="small"
               fullWidth
-              value={phone1}
-              onChange={handlePhone1Change}
+              value={passport}
+              onChange={handlePassportChange}
               InputLabelProps={{ style: { fontSize: '14px' } }}
             />
           </Grid>
@@ -293,8 +393,8 @@ function Invoice() {
               variant="outlined"
               size="small"
               fullWidth
-              value={phone2}
-              onChange={handlePhone2Change}
+              value={srfNo}
+              onChange={handleSrfNoChange}
               InputLabelProps={{ style: { fontSize: '14px' } }}
             />
           </Grid>
@@ -305,8 +405,8 @@ function Invoice() {
               variant="outlined"
               size="small"
               fullWidth
-              value={phone1}
-              onChange={handlePhone1Change}
+              value={branch}
+              onChange={handleBranchChange}
               InputLabelProps={{ style: { fontSize: '14px' } }}
             />
           </Grid>
@@ -317,8 +417,8 @@ function Invoice() {
               variant="outlined"
               size="small"
               fullWidth
-              value={phone2}
-              onChange={handlePhone2Change}
+              value={aadhar}
+              onChange={handleAadharChange}
               InputLabelProps={{ style: { fontSize: '14px' } }}
             />
           </Grid>
@@ -329,8 +429,8 @@ function Invoice() {
               variant="outlined"
               size="small"
               fullWidth
-              value={phone1}
-              onChange={handlePhone1Change}
+              value={wardNo}
+              onChange={handleWardNoChange}
               InputLabelProps={{ style: { fontSize: '14px' } }}
             />
           </Grid>
@@ -341,8 +441,8 @@ function Invoice() {
               variant="outlined"
               size="small"
               fullWidth
-              value={phone2}
-              onChange={handlePhone2Change}
+              value={ipOpNo}
+              onChange={handleIpOpNoChange}
               InputLabelProps={{ style: { fontSize: '14px' } }}
             />
           </Grid>
@@ -353,20 +453,20 @@ function Invoice() {
               variant="outlined"
               size="small"
               fullWidth
-              value={phone2}
-              onChange={handlePhone2Change}
+              value={collMode}
+              onChange={handleCollModeChange}
               InputLabelProps={{ style: { fontSize: '14px' } }}
             />
           </Grid>
           <Grid item xs={12} sm={6}>
             <TextField
               id="collby"
-              label="Coll By"
+              label="Coll By."
               variant="outlined"
               size="small"
               fullWidth
-              value={phone1}
-              onChange={handlePhone1Change}
+              value={collBy}
+              onChange={handleCollBYChange}
               InputLabelProps={{ style: { fontSize: '14px' } }}
             />
           </Grid>
@@ -381,8 +481,8 @@ function Invoice() {
               <Select
                 labelId="sampleon"
                 id="sampleon"
-                value={dateTime}
-                onChange={handleDateTimeChange}
+                value={sampleOn}
+                onChange={handleSampleOnChange}
                 label="Sample On"
               >
                 <MenuItem value=""><em>None</em></MenuItem>
@@ -398,8 +498,8 @@ function Invoice() {
               <Select
                 labelId="reporton"
                 id="reporton"
-                value={dateTime}
-                onChange={handleDateTimeChange}
+                value={reportOn}
+                onChange={handleReportOnChange}
                 label="Report On"
               >
                 <MenuItem value=""><em>None</em></MenuItem>
@@ -442,13 +542,13 @@ function Invoice() {
           </Grid>
           <Grid item xs={12} sm={12}>
             <TextField
-              id="address"
+              id="field"
               
               variant="outlined"
               size="small"
               fullWidth
-              value={phone2}
-              onChange={handlePhone2Change}
+              value={field}
+              onChange={handleFieldChange}
               InputLabelProps={{ style: { fontSize: '14px' } }}
             />
           </Grid>
