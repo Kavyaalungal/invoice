@@ -220,7 +220,7 @@ function SingleFetchField() {
       {invoiceData && (
         <TextField
           id="Inv_name"
-          label="Invoice Number"
+          label=""
           variant="outlined"
           size="small"
           fullWidth

@@ -5,6 +5,7 @@ import InvoiceData from './InvoiceData';
 import SingleFieldFetch from './SingleFieldFetch';
 import Swr from './Fetch';
 import Fetch from './Fetch';
+import Single from './Single';
 
 const theme = createTheme({
   palette: {
@@ -27,7 +28,8 @@ function App() {
 
     
     <ThemeProvider theme={theme}>
-      <SingleFieldFetch/>
+      {/* <SingleFieldFetch/> */}
+      <Single/>
       {/* <InvoiceData/> */}
       {/* <Invoice /> */}
       {/* <Fetch/> */}

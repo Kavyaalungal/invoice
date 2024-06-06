@@ -1,24 +1,27 @@
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
-import { useState, useEffect } from 'react';
 const Fetch = () => {
   const [photos, setPhotos] = useState([]);
+
   useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/photos')
-      .then((res) => {
-        return res.json();
+    axios.get('https://jsonplaceholder.typicode.com/photos')
+      .then(response => {
+        console.log(response.data);
+        setPhotos(response.data);
       })
-      .then((data) => {
-        console.log(data);
-        setPhotos(data);
+      .catch(error => {
+        console.error('Error fetching photos:', error);
       });
   }, []);
+
   return (
     <div>
-      
       {photos.map((photo) => (
         <img key={photo.id} src={photo.url} alt={photo.title} width={100} />
       ))}
     </div>
   );
 };
+
 export default Fetch;
